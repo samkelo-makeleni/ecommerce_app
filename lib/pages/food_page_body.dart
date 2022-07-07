@@ -39,6 +39,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        //Slider section
         Container(
           height: 300,
           child: PageView.builder(
@@ -57,12 +58,70 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           decorator: DotsDecorator(
             //color: AppColors.greenColor,
             activeColor: AppColors.greenColor,
-            size: const Size.square(9.0),
-            activeSize: const Size(18.0, 9.0),
+            //size: const Size.square(9.0),
+            //activeSize: const Size(18.0, 9.0),
             activeShape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0)),
           ),
         ),
+        //popular text
+        const SizedBox(
+          height: 20,
+        ),
+        Container(
+          margin: const EdgeInsets.only(left: 30),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              PrimaryText(text: "Popular"),
+              const SizedBox(
+                width: 10,
+              ),
+              Container(
+                margin: const EdgeInsets.only(bottom: 3),
+                child: PrimaryText(
+                  text: ".",
+                  color: Colors.black87,
+                ),
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Container(
+                margin: const EdgeInsets.only(bottom: 2),
+                child: SecondaryText(
+                  text: "Food pairing",
+                ),
+              )
+            ],
+          ),
+        ),
+        // List of food and images
+        Container(
+          height: 80,
+          child: ListView.builder(
+            itemCount: 10,
+            itemBuilder: ((context, index) {
+              return Container(
+                  margin: const EdgeInsets.only(left: 20, right: 20),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 120,
+                        height: 120,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.white38,
+                          image : const DecorationImage(
+                          image: AssetImage(
+                          "assets/images/food11.jpeg"), )
+
+                        ),
+                      )
+                    ],
+                  ));
+            })),
+        )
       ],
     );
   }
