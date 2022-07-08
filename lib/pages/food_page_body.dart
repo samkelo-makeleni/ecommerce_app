@@ -98,14 +98,17 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         ),
         // List of food and images
         Container(
-          height: 80,
+          height: 700,
           child: ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+           // shrinkWrap: true,
             itemCount: 10,
             itemBuilder: ((context, index) {
               return Container(
-                  margin: const EdgeInsets.only(left: 20, right: 20),
+                  margin: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
                   child: Row(
                     children: [
+                      //image container
                       Container(
                         width: 120,
                         height: 120,
@@ -113,11 +116,28 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                           borderRadius: BorderRadius.circular(20),
                           color: Colors.white38,
                           image : const DecorationImage(
+                            fit: BoxFit.cover,
                           image: AssetImage(
                           "assets/images/food11.jpeg"), )
 
                         ),
-                      )
+                      ),
+                      //Text container
+                     const SizedBox(width: 10,),
+                     Expanded(
+                       child: Container(
+                         height: 100,
+                         //width: 200,
+                         decoration: const BoxDecoration(
+                           borderRadius: BorderRadius.only(
+                             topRight: Radius.circular(20),
+                             bottomRight: Radius.circular(20),
+                           ),
+                           color: Colors.white,
+
+                         ),
+                       ),
+                     )
                     ],
                   ));
             })),
