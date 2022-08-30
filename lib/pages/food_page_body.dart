@@ -100,47 +100,91 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         Container(
           height: 700,
           child: ListView.builder(
-            physics: const NeverScrollableScrollPhysics(),
-           // shrinkWrap: true,
-            itemCount: 10,
-            itemBuilder: ((context, index) {
-              return Container(
-                  margin: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
-                  child: Row(
-                    children: [
-                      //image container
-                      Container(
-                        width: 120,
-                        height: 120,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.white38,
-                          image : const DecorationImage(
-                            fit: BoxFit.cover,
-                          image: AssetImage(
-                          "assets/images/food11.jpeg"), )
-
+              physics: const NeverScrollableScrollPhysics(),
+              // shrinkWrap: true,
+              itemCount: 10,
+              itemBuilder: ((context, index) {
+                return Container(
+                    margin:
+                        const EdgeInsets.only(left: 20, right: 20, bottom: 10),
+                    child: Row(
+                      children: [
+                        //image container
+                        Container(
+                          width: 120,
+                          height: 120,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: Colors.white38,
+                              image: const DecorationImage(
+                                fit: BoxFit.cover,
+                                image: AssetImage("assets/images/food11.jpeg"),
+                              )),
                         ),
-                      ),
-                      //Text container
-                     const SizedBox(width: 10,),
-                     Expanded(
-                       child: Container(
-                         height: 100,
-                         //width: 200,
-                         decoration: const BoxDecoration(
-                           borderRadius: BorderRadius.only(
-                             topRight: Radius.circular(20),
-                             bottomRight: Radius.circular(20),
-                           ),
-                           color: Colors.white,
+                        //Text container
+                        const SizedBox(
+                          width: 10,
+                        ),
 
-                         ),
-                       ),
-                     )
-                    ],
-                  ));
-            })),
+                        Expanded(
+                          child: Container(
+                            height: 100,
+                            //width: 200,
+                            decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(20),
+                                bottomRight: Radius.circular(20),
+                              ),
+                              color: Colors.white,
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  PrimaryText(
+                                      text:
+                                          "Nutrious fruit meal in South Africa"),
+                                          const SizedBox(height: 10,),
+                                  SecondaryText(
+                                      text: "With african characteristics"),
+                                       const SizedBox(height: 10,),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: const [
+                                      IconAndTexWidget(
+                                        text: "Normal",
+                                        icon: Icons.circle_sharp,
+                                        iconColor: AppColors.yellowTextColor,
+                                      ),
+                                      // SizedBox(
+                                      //   width: 25,
+                                      // ),
+                                      IconAndTexWidget(
+                                        text: "2.2km",
+                                        icon: Icons.location_on,
+                                        iconColor: AppColors.greenColor,
+                                      ),
+                                      // SizedBox(
+                                      //   width: 25,
+                                      // ),
+                                      IconAndTexWidget(
+                                        text: "30min",
+                                        icon: Icons.access_time_rounded,
+                                        iconColor: AppColors.yellowTextColor,
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ));
+              })),
         )
       ],
     );
@@ -234,7 +278,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  PrimaryText(text: "Chinese Side"),
+                  PrimaryText(text: "African Side"),
                   const SizedBox(
                     height: 10,
                   ),
@@ -292,7 +336,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                         iconColor: AppColors.yellowTextColor,
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
