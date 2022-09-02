@@ -1,4 +1,6 @@
-import 'package:ecommerce_app/pages/food_page_body.dart';
+
+
+import 'package:ecommerce_app/pages/home/food_page_body.dart';
 import 'package:ecommerce_app/utils/app_colors.dart';
 import 'package:ecommerce_app/widgets/primary_text.dart';
 import 'package:ecommerce_app/widgets/secondary_text.dart';
