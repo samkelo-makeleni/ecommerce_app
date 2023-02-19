@@ -17,8 +17,8 @@ class FoodPageBody extends StatefulWidget {
 class _FoodPageBodyState extends State<FoodPageBody> {
   PageController pageController = PageController(viewportFraction: 0.85);
   var _currentPageValue = 0.0;
-  double _scaleFactor = 0.8;
-  double _height = 220;
+  final double _scaleFactor = 0.8;
+  final double _height = 220;
 
   @override
   void initState() {
@@ -146,10 +146,14 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                   PrimaryText(
                                       text:
                                           "Nutrious fruit meal in South Africa"),
-                                          const SizedBox(height: 10,),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
                                   SecondaryText(
                                       text: "With african characteristics"),
-                                       const SizedBox(height: 10,),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
@@ -245,7 +249,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
     return Transform(
       transform: matrix,
-      child: Stack(children: [
+      child: Stack(
+        children: [
         Container(
           height: 180,
           margin: const EdgeInsets.only(left: 10, right: 10),
@@ -319,17 +324,13 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                         icon: Icons.circle_sharp,
                         iconColor: AppColors.yellowTextColor,
                       ),
-                      // SizedBox(
-                      //   width: 25,
-                      // ),
+                    
                       IconAndTexWidget(
                         text: "2.2km",
                         icon: Icons.location_on,
                         iconColor: AppColors.greenColor,
                       ),
-                      // SizedBox(
-                      //   width: 25,
-                      // ),
+                      
                       IconAndTexWidget(
                         text: "30min",
                         icon: Icons.access_time_rounded,
@@ -342,7 +343,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             ),
           ),
         ),
-      ]),
+      ],
+      ),
     );
   }
 }
