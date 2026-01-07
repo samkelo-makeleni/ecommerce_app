@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 
 class PrimaryText extends StatelessWidget {
-   Color ?  color;
+  final Color? color;
   final String text;
-  double size;
-  TextOverflow overflow;
+  final double size;
+  final TextOverflow overflow;
 
- PrimaryText({ Key? key , this.color = const Color(0xFF332d2b),
- required this.text,
- this.overflow=TextOverflow.ellipsis,
- this.size=20,
- }) : super(key: key);
+  const PrimaryText({
+    Key? key,
+    this.color = const Color(0xFF332d2b),
+    required this.text,
+    this.overflow = TextOverflow.ellipsis,
+    this.size = 20,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
