@@ -31,6 +31,7 @@ class FoodScopedModel extends ChangeNotifier {
     // check in-memory cache first
     if (_cache.containsKey(query)) {
       _items = _cache[query]!;
+      _error = null;
       _loading = false;
       notifyListeners();
       return;
@@ -49,6 +50,7 @@ class FoodScopedModel extends ChangeNotifier {
       final fromPrefs = await _loadCacheFromPrefs(query);
       if (fromPrefs != null) {
         _items = fromPrefs;
+        _error = null;
       } else {
         _items = [];
       }
@@ -74,7 +76,9 @@ class FoodScopedModel extends ChangeNotifier {
       final key = 'cached_foods_${query.isEmpty ? 'all' : query}';
       final jsonStr = json.encode(list.map((e) => e.toMap()).toList());
       await prefs.setString(key, jsonStr);
-    } catch (_) {}
+    } catch (e) {
+      debugPrint('Failed to save food cache: $e');
+    }
   }
 
   Future<List<Food>?> _loadCacheFromPrefs(String query) async {
@@ -84,8 +88,11 @@ class FoodScopedModel extends ChangeNotifier {
       final jsonStr = prefs.getString(key);
       if (jsonStr == null) return null;
       final List<dynamic> data = json.decode(jsonStr) as List<dynamic>;
-      return data.map((e) => Food.fromMap(Map<String, dynamic>.from(e as Map))).toList();
-    } catch (_) {
+      return data
+          .map((e) => Food.fromMap(Map<String, dynamic>.from(e as Map)))
+          .toList();
+    } catch (e) {
+      debugPrint('Failed to load food cache: $e');
       return null;
     }
   }

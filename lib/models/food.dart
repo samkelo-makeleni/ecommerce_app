@@ -23,8 +23,13 @@ class Food {
         id: (m['id'] ?? m['idMeal'] ?? '') as String,
         name: (m['name'] ?? m['strMeal'] ?? 'Unknown') as String,
         description: (m['description'] ?? m['strInstructions'] ?? '') as String,
-        price: ((m['price'] is num) ? (m['price'] as num).toDouble() : (m['price'] != null ? double.tryParse(m['price'].toString()) ?? 9.99 : 9.99)),
-        image: (m['image'] ?? m['strMealThumb'] ?? 'assets/images/food11.jpeg') as String,
+        price: ((m['price'] is num)
+            ? (m['price'] as num).toDouble()
+            : (m['price'] != null
+                ? double.tryParse(m['price'].toString()) ?? 9.99
+                : 9.99)),
+        image: (m['image'] ?? m['strMealThumb'] ?? 'assets/images/food11.jpeg')
+            as String,
         category: (m['strCategory'] ?? m['category']) as String?,
         area: (m['strArea'] ?? m['area']) as String?,
         tags: _parseTags(m['strTags'] ?? m['tags']),
@@ -43,7 +48,13 @@ class Food {
 
   static List<String>? _parseTags(dynamic raw) {
     if (raw == null) return null;
-    if (raw is String) return raw.split(',').map((s) => s.trim()).where((s) => s.isNotEmpty).toList();
+    if (raw is String) {
+      return raw
+          .split(',')
+          .map((s) => s.trim())
+          .where((s) => s.isNotEmpty)
+          .toList();
+    }
     if (raw is List) return raw.map((e) => e.toString()).toList();
     return null;
   }

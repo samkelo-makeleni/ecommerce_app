@@ -1,4 +1,3 @@
-
 import 'package:ecommerce_app/widgets/secondary_text.dart';
 import 'package:flutter/material.dart';
 
